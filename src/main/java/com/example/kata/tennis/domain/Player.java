@@ -35,4 +35,9 @@ public class Player {
     public boolean hasWon() {
         return score == Score.WIN;
     }
+
+    @Override
+    public String toString() {
+        return name + ": " + score;
+    }
 }

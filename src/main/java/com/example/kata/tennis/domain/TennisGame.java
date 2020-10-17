@@ -73,4 +73,9 @@ public class TennisGame {
     public boolean isWon() {
         return playerOne.hasWon() || playerTwo.hasWon();
     }
+
+    @Override
+    public String toString() {
+        return "Score: " + playerOne + " -- " + playerTwo;
+    }
 }
