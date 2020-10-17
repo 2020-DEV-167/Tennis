@@ -46,7 +46,7 @@ class TennisGameTest {
         final Player scoringPlayer = game.getPlayerOne();
         scoringPlayer.setScores(Score.FIFTEEN);
 
-        game.scores(scoringPlayer);
+        game.playerOneScores();
 
         assertThat(scoringPlayer.getScore()).isEqualTo(Score.THIRTY);
     }
@@ -54,10 +54,10 @@ class TennisGameTest {
     @DisplayName("Given a player scores and its score was thirty, then his score is forty")
     @Test
     void playersCanScoreFromThirtyToForty() {
-        final Player scoringPlayer = game.getPlayerOne();
+        final Player scoringPlayer = game.getPlayerTwo();
         scoringPlayer.setScores(Score.THIRTY);
 
-        game.scores(scoringPlayer);
+        game.playerTwoScores();
 
         assertThat(scoringPlayer.getScore()).isEqualTo(Score.FORTY);
     }

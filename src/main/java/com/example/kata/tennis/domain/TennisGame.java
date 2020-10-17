@@ -22,6 +22,14 @@ public class TennisGame {
         return playerTwo;
     }
 
+    public void playerOneScores() {
+        scores(getPlayerOne());
+    }
+
+    public void playerTwoScores() {
+        scores(getPlayerTwo());
+    }
+
     public void scores(final Player scoringPlayer) {
         switch (scoringPlayer.getScore()) {
             case ZERO:
