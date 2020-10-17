@@ -31,12 +31,21 @@ public class TennisGame {
     }
 
     private void scores(final Player scoringPlayer) {
+        final Player otherPlayer = retrieveOtherPlayer(scoringPlayer);
+
         if (isDeuce()) {
             scoringPlayer.setScores(ADVANTAGE);
+        }
+        else if (otherPlayer.hasAdvantage()) {
+            otherPlayer.setScores(FORTY);
         }
         else {
             handleBasicScoring(scoringPlayer);
         }
+    }
+
+    private Player retrieveOtherPlayer(final Player player) {
+        return player == playerOne ? playerTwo : playerOne;
     }
 
     private void handleBasicScoring(final Player scoringPlayer) {

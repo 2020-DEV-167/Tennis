@@ -72,6 +72,21 @@ class TennisGameTest {
 
         game.playerTwoScores();
 
+        assertThat(playerOne.getScore()).isEqualTo(Score.FORTY);
         assertThat(playerTwo.getScore()).isEqualTo(Score.ADVANTAGE);
+    }
+
+    @DisplayName("Given a player has advantage and the other player scores, then we are back to deuce")
+    @Test
+    void gameIsDeuceIfPlayerScoresAgainstAdvantage() {
+        final Player playerOne = game.getPlayerOne();
+        final Player playerTwo = game.getPlayerTwo();
+        playerOne.setScores(Score.ADVANTAGE);
+        playerTwo.setScores(Score.FORTY);
+
+        game.playerTwoScores();
+
+        assertThat(playerOne.getScore()).isEqualTo(Score.FORTY);
+        assertThat(playerTwo.getScore()).isEqualTo(Score.FORTY);
     }
 }
