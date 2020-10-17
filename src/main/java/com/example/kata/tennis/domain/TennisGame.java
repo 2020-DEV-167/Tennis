@@ -30,7 +30,16 @@ public class TennisGame {
         scores(getPlayerTwo());
     }
 
-    public void scores(final Player scoringPlayer) {
+    private void scores(final Player scoringPlayer) {
+        if (isDeuce()) {
+            scoringPlayer.setScores(ADVANTAGE);
+        }
+        else {
+            handleBasicScoring(scoringPlayer);
+        }
+    }
+
+    private void handleBasicScoring(final Player scoringPlayer) {
         switch (scoringPlayer.getScore()) {
             case ZERO:
                 scoringPlayer.setScores(FIFTEEN);
@@ -42,5 +51,9 @@ public class TennisGame {
                 scoringPlayer.setScores(FORTY);
                 break;
         }
+    }
+
+    private boolean isDeuce() {
+        return playerOne.getScore() == FORTY && playerTwo.getScore() == FORTY;
     }
 }

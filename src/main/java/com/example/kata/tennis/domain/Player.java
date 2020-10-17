@@ -24,7 +24,7 @@ public class Player {
         return score;
     }
 
-    public void setScores(final Score score) {
+    protected void setScores(final Score score) {
         this.score = score;
     }
 }
