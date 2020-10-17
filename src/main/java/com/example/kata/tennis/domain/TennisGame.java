@@ -2,6 +2,8 @@ package com.example.kata.tennis.domain;
 
 import com.example.kata.tennis.domain.exception.PlayerNameCannotBeBlankException;
 
+import static com.example.kata.tennis.domain.Score.*;
+
 public class TennisGame {
 
     private final Player playerOne;
@@ -18,5 +20,19 @@ public class TennisGame {
 
     public Player getPlayerTwo() {
         return playerTwo;
+    }
+
+    public void scores(final Player scoringPlayer) {
+        switch (scoringPlayer.getScore()) {
+            case ZERO:
+                scoringPlayer.setScores(FIFTEEN);
+                break;
+            case FIFTEEN:
+                scoringPlayer.setScores(THIRTY);
+                break;
+            case THIRTY:
+                scoringPlayer.setScores(FORTY);
+                break;
+        }
     }
 }

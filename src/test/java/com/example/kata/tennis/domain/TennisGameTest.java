@@ -29,4 +29,36 @@ class TennisGameTest {
         assertThat(game.getPlayerOne().getName()).isEqualTo("BNP");
         assertThat(game.getPlayerTwo().getName()).isEqualTo("PF");
     }
+
+    @DisplayName("Given a player scores and its score was zero, then his score is fitfeen")
+    @Test
+    void playersCanScoreFromZeroToFifteen() {
+        final Player scoringPlayer = game.getPlayerOne();
+
+        game.scores(scoringPlayer);
+
+        assertThat(scoringPlayer.getScore()).isEqualTo(Score.FIFTEEN);
+    }
+
+    @DisplayName("Given a player scores and its score was fifteen, then his score is thirty")
+    @Test
+    void playersCanScoreFromFifteenToThirty() {
+        final Player scoringPlayer = game.getPlayerOne();
+        scoringPlayer.setScores(Score.FIFTEEN);
+
+        game.scores(scoringPlayer);
+
+        assertThat(scoringPlayer.getScore()).isEqualTo(Score.THIRTY);
+    }
+
+    @DisplayName("Given a player scores and its score was thirty, then his score is forty")
+    @Test
+    void playersCanScoreFromThirtyToForty() {
+        final Player scoringPlayer = game.getPlayerOne();
+        scoringPlayer.setScores(Score.THIRTY);
+
+        game.scores(scoringPlayer);
+
+        assertThat(scoringPlayer.getScore()).isEqualTo(Score.FORTY);
+    }
 }
