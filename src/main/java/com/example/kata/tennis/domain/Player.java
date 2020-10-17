@@ -31,4 +31,8 @@ public class Player {
     public boolean hasAdvantage() {
         return score == Score.ADVANTAGE;
     }
+
+    public boolean hasWon() {
+        return score == Score.WIN;
+    }
 }

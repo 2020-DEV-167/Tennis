@@ -71,6 +71,6 @@ public class TennisGame {
     }
 
     public boolean isWon() {
-        return playerOne.getScore() == WIN || playerTwo.getScore() == WIN;
+        return playerOne.hasWon() || playerTwo.hasWon();
     }
 }

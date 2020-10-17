@@ -44,4 +44,20 @@ public class PlayerTest {
 
         assertThat(player.hasAdvantage()).isFalse();
     }
+
+    @DisplayName("Player has won if his score is WIN")
+    @Test
+    void playerHasWon() {
+        player.setScores(Score.WIN);
+
+        assertThat(player.hasWon()).isTrue();
+    }
+
+    @DisplayName("Player has not won if his score is not WIN")
+    @Test
+    void playerHasNotWon() {
+        player.setScores(Score.FORTY);
+
+        assertThat(player.hasWon()).isFalse();
+    }
 }
