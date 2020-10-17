@@ -5,6 +5,7 @@ import com.example.kata.tennis.domain.exception.PlayerNameCannotBeBlankException
 public class Player {
 
     private final String name;
+    private final Score score;
 
     public Player(final String name) throws PlayerNameCannotBeBlankException {
         if (name.isBlank()) {
@@ -12,9 +13,14 @@ public class Player {
         }
 
         this.name = name;
+        this.score = Score.ZERO;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Score getScore() {
+        return score;
     }
 }
