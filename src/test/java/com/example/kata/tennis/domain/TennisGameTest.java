@@ -89,4 +89,32 @@ class TennisGameTest {
         assertThat(playerOne.getScore()).isEqualTo(Score.FORTY);
         assertThat(playerTwo.getScore()).isEqualTo(Score.FORTY);
     }
+
+    @DisplayName("Given player scores on forty (no deuce), the game is done")
+    @Test
+    void gameIsDoneIfPlayerOneHasWon() {
+        final Player playerOne = game.getPlayerOne();
+        playerOne.setScores(Score.FORTY);
+
+        game.playerOneScores();
+
+        assertThat(game.isWon()).isTrue();
+    }
+
+    @DisplayName("Given player scores with advantage, the game is done")
+    @Test
+    void gameIsDoneIfPlayerTwoHasWon() {
+        final Player playerTwo = game.getPlayerTwo();
+        playerTwo.setScores(Score.ADVANTAGE);
+
+        game.playerTwoScores();
+
+        assertThat(game.isWon()).isTrue();
+    }
+
+    @DisplayName("Given players didn't win yet, game is not done")
+    @Test
+    void gameIsNotDoneIfNoOneHasWonYet() {
+        assertThat(game.isWon()).isFalse();
+    }
 }

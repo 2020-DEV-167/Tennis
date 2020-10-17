@@ -59,10 +59,18 @@ public class TennisGame {
             case THIRTY:
                 scoringPlayer.setScores(FORTY);
                 break;
+            case FORTY:
+            case ADVANTAGE:
+                scoringPlayer.setScores(WIN);
+                break;
         }
     }
 
     private boolean isDeuce() {
         return playerOne.getScore() == FORTY && playerTwo.getScore() == FORTY;
+    }
+
+    public boolean isWon() {
+        return playerOne.getScore() == WIN || playerTwo.getScore() == WIN;
     }
 }
